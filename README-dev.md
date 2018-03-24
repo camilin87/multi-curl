@@ -23,3 +23,9 @@ bundler install
 ```bash
 bundle exec rspec
 ```
+
+## Integration test  
+
+```bash
+sh int-test.sh
+```
