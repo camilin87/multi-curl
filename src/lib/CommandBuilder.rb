@@ -1,5 +1,5 @@
 class CommandBuilder
   def self.command_from_url(url)
-    nil
+    raise 'Missing url'
   end
 end
