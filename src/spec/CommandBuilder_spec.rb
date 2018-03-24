@@ -10,7 +10,11 @@ describe CommandBuilder, 'command_from_url' do
     expect { build('') }.to raise_error(RuntimeError)
   end
 
-  it 'command starts with curl' do
-    expect(build('http://google.com')).to start_with('curl')
+  it 'command starts with the correct command' do
+    expect(build('http://google.com')).to start_with('curl -s -o ')
+  end
+
+  it 'ends with the url' do
+    expect(build('http://google.com')).to end_with(' -O http://google.com')
   end
 end
