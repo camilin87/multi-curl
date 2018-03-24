@@ -2,7 +2,7 @@
 
 rm -Rf out && \
   mkdir out && \
-  bundle exec ruby program.rb resources/sample_input.txt out && \
+  bundle exec ruby program.rb out resources/sample_input.txt && \
   echo `ls out` | grep 404 && \
   echo `ls out` | grep 416 && \
   echo `ls out` | grep 504

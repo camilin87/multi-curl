@@ -1,8 +1,8 @@
 require './lib/command_builder'
 require './lib/command_runner'
 
-urls_filename = ARGV[0]
-output_dir = ARGV[1]
+output_dir = ARGV[0]
+urls_filename = ARGV[1]
 
 raise "Output Directory does not exist! \"#{output_dir}\"" unless File.exists?(output_dir)
 
