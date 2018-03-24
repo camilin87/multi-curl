@@ -11,6 +11,13 @@ class String
 end
 
 class CommandBuilder
+
+  def self.build(urls)
+    urls.map { |u| command_from_url u }
+  end
+
+  private
+
   def self.command_from_url(url)
     raise 'Missing url' if url.to_s.empty?
 
