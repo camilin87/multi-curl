@@ -5,15 +5,10 @@ urls_filename = ARGV[0]
 
 p "Reading #{urls_filename}"
 
-urls = []
+commands = CommandBuilder.from_file(urls_filename)
 
-File.open(urls_filename).each_line do |url|
-  urls << url
-end
+p "Found #{commands.count} urls"
 
-p "Found #{urls.count} urls"
-
-commands = CommandBuilder.build(urls)
 CommandRunner.run(commands)
 
 p "Done"

@@ -12,6 +12,14 @@ end
 
 class CommandBuilder
 
+  def self.from_file(file_path)
+    absolute_path = file_path
+
+    urls = File.readlines(absolute_path).map { |l| l.tr("\r\n", '') }
+
+    build(urls)
+  end
+
   def self.build(urls)
     urls.map { |u| command_from_url u }
   end

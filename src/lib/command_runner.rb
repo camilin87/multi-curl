@@ -3,7 +3,7 @@ class CommandRunner
     commands.each do |cmd|
       p "#{cmd}"
 
-      `cmd`
+      `#{cmd}`
     end
   end
 end
