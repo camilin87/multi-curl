@@ -12,26 +12,29 @@ end
 
 class CommandBuilder
 
-  def self.from_file(file_path)
+  def self.from_file(file_path, output_dir)
     absolute_path = file_path
 
     urls = File.readlines(absolute_path).map { |l| l.tr("\r\n", '') }
 
-    build(urls)
+    build(urls, output_dir)
   end
 
-  def self.build(urls)
-    urls.map { |u| command_from_url u }
+  def self.build(urls, output_dir)
+    urls.map { |u| command_from_url(u, output_dir) }
   end
 
   private
 
-  def self.command_from_url(url)
+  def self.command_from_url(url, output_dir)
     raise 'Missing url' if url.to_s.empty?
 
     uri = URI.parse(url)
     prefix = uri.path.tr('/.', '_').trim('_')
 
-    "curl -s -o #{prefix}-$(date +%Y-%m-%d-%H-%M-%S).html -O #{url}"
+    output_filename = "#{prefix}-$(date +%Y-%m-%d-%H-%M-%S).html"
+    output_path = File.join(output_dir, output_filename)
+
+    "curl -s -o #{output_path} -O #{url}"
   end
 end
