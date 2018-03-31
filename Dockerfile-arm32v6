@@ -1,4 +1,6 @@
-FROM ruby:2.5-alpine3.7
+FROM arm32v6/ruby:2.5-alpine3.7
+
+# RUN apt-get update && apt-get upgrade -y curl
 
 RUN mkdir -p /var/mc/input/
 RUN mkdir -p /var/mc/output/
