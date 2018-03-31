@@ -1,6 +1,6 @@
 FROM ruby:2.5
 
-# RUN apt-get update && apt-get upgrade -y curl
+Architectures: amd64, arm32v5, arm32v7, arm64v8, i386, ppc64le, s390x
 
 RUN mkdir -p /var/mc/input/
 RUN mkdir -p /var/mc/output/
