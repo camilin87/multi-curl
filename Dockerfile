@@ -1,5 +1,7 @@
 FROM ruby:2.5-alpine3.7
 
+RUN apk add --no-cache curl
+
 RUN mkdir -p /var/mc/input/
 RUN mkdir -p /var/mc/output/
 RUN mkdir -p /var/mc/lib/
